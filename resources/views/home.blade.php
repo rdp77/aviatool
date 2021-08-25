@@ -54,7 +54,7 @@
                     <h4>{{ __('Total Kelas') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ $items }}
+                    {{ $class }}
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                     <h4>{{ __('Total Pelajar') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ $items }}
+                    {{ $student }}
                 </div>
             </div>
         </div>

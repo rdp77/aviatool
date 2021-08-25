@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Items;
+use App\Models\Student;
+use App\Models\StudentClass;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -36,8 +38,11 @@ class HomeController extends Controller
             ->limit(7)
             ->get();
         $transaction = Transaction::count();
+        $class = StudentClass::count();
+        $student = Student::count();
         return view('home', [
-            'items' => $items, 'transaction' => $transaction, 'history' => $history
+            'items' => $items, 'transaction' => $transaction, 'history' => $history,
+            'student' => $student, 'class' => $class
         ]);
     }
 
