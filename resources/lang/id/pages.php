@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'title' => 'System Inventory',
-    'brand' => 'Inven',
+    'title' => 'Aviatool',
+    'brand' => 'AVT',
     'edit' => 'Simpan Perubahan',
     'save' => 'Simpan',
     'add' => 'Tambah',
