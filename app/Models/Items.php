@@ -22,6 +22,7 @@ class Items extends Model
         'name',
         'code',
         'status',
-        'condition'
+        'condition',
+        'info'
     ];
 }

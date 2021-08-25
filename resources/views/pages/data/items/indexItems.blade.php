@@ -25,6 +25,7 @@
                     <th>{{ __('Nama') }}</th>
                     <th>{{ __('Status') }}</th>
                     <th>{{ __('Kondisi') }}</th>
+                    <th>{{ __('Info') }}</th>
                     <th>{{ __('Aksi') }}</th>
                 </tr>
             </thead>
@@ -47,8 +48,15 @@
                     </td>
                     <td>
                         <span class="badge badge-info">
+                            @if ($i->condition == 'Buruk')
+                            {{ __('Kurang Baik') }}
+                            @else
                             {{ $i->condition }}
+                            @endif
                         </span>
+                    </td>
+                    <td>
+                        {{ $i->info }}
                     </td>
                     <td>
                         <div class="btn-group">

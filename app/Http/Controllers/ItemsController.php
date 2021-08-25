@@ -50,7 +50,8 @@ class ItemsController extends Controller
             'code' => $req->code,
             'name' => $req->name,
             'status' => 'Ada',
-            'condition' => $req->condition == 1 ? 'Bagus' : 'Buruk'
+            'condition' => $req->condition == 1 ? 'Bagus' : 'Buruk',
+            'info' => $req->info
         ]);
 
         return Redirect::route('items.index');
@@ -72,6 +73,7 @@ class ItemsController extends Controller
         $items = Items::find($id);
         $items->name = $req->name;
         $items->condition = $req->condition == 1 ? 'Bagus' : 'Buruk';
+        $items->info = $req->info;
         $items->save();
         return Redirect::route('items.index');
     }

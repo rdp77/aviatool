@@ -19,6 +19,7 @@ class CreateItems extends Migration
             $table->string('code');
             $table->enum('status', ['Ada', 'Dipinjam'])->default('Ada');
             $table->enum('condition', ['Bagus', 'Buruk'])->default('Bagus');
+            $table->text('info')->nullable();
         });
     }
 
