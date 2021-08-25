@@ -89,7 +89,7 @@
             </table>
         </div>
         <div class="card-footer text-right">
-            <button class="btn btn-primary mr-1" type="submit">{{ __('pages.add') }}</button>
+            <button class="btn btn-primary mr-1" type="submit">{{ __('Pinjam') }}</button>
         </div>
     </div>
 </form>
