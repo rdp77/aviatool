@@ -50,9 +50,6 @@
             {{ $result->info }}
             @endif
         </textarea>
-        <div class="mt-3 text-center">
-            {!! DNS1D::getBarcodeSVG($result->code, 'C39+') !!}
-        </div>
     </div>
 </div>
 @endsection

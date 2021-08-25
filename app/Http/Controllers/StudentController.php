@@ -49,6 +49,15 @@ class StudentController extends Controller
             'class' => 'required',
         ])->validate();
 
+        $maxClass = StudentClass::find($req->class)->max;
+        $currentStudent = Student::where('c_id', $req->class)->count();
+        if ($maxClass == $currentStudent) {
+            return Redirect::route('student.create')->with([
+                'status' => 'Jumlah pelajar untuk kelas ini sudah mencapai batas maksimal',
+                'type' => 'info'
+            ]);
+        }
+
         Student::create([
             'code' => $req->code,
             'name' => $req->name,

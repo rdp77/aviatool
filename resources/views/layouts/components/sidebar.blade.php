@@ -27,7 +27,7 @@
                 Request::route()->getName() == 'users.create' ? 'active' : (
                     Request::route()->getName() == 'users.edit' ? 'active' : '')) }}">
                 <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-users"></i>
-                    <span>{{ __('Pengguna') }}</span></a>
+                    <span>{{ __('Administrator') }}</span></a>
             </li>
             <li class="{{ Request::route()->getName() == 'items.index' ? 'active' : (
                     Request::route()->getName() == 'items.create' ? 'active' : (
@@ -50,7 +50,7 @@
                 Request::route()->getName() == 'student.create' ? 'active' : (
                     Request::route()->getName() == 'student.edit' ? 'active' : '')) }}">
                 <a class="nav-link" href="{{ route('student.index') }}"><i class="fas fa-user"></i>
-                    <span>{{ __('Pelajar') }}</span></a>
+                    <span>{{ __('Pengguna') }}</span></a>
             </li>
         </ul>
     </aside>
