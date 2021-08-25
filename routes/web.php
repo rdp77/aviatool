@@ -62,4 +62,4 @@ Route::post('/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class
     ->name('changePass');
 Route::post('/users/reset/{id}', [App\Http\Controllers\UsersController::class, 'reset'])
     ->name('users.reset');
-Route::post('/users/name', [App\Http\Controllers\UsersController::class, 'change']);
+Route::get('/users/name', [App\Http\Controllers\UsersController::class, 'change']);
