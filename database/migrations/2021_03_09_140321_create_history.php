@@ -19,6 +19,7 @@ class CreateHistory extends Migration
             $table->json('i_id');
             $table->dateTime('datetime');
             $table->string('info');
+            $table->string('name');
         });
     }
 

@@ -98,7 +98,8 @@ class BorrowController extends Controller
             'datetime' => date("Y-m-d H:i:s"),
             's_id' => $req->student,
             'i_id' => json_encode($req->items),
-            'info' => 'Dipinjam'
+            'info' => 'Dipinjam',
+            'name' => Student::find($req->student)->name
         ]);
 
         return Redirect::route('borrow.index');
@@ -118,7 +119,8 @@ class BorrowController extends Controller
             'datetime' => date("Y-m-d H:i:s"),
             's_id' => $transaction->s_id,
             'i_id' => $transaction->i_id,
-            'info' => 'Dikembalikan'
+            'info' => 'Dikembalikan',
+            'name' => Student::find($transaction->s_id)->name
         ]);
 
         $transaction->delete();

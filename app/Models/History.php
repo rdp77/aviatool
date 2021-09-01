@@ -23,5 +23,6 @@ class History extends Model
         'info',
         's_id',
         'i_id',
+        'name'
     ];
 }
