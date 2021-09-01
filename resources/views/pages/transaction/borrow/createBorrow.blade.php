@@ -30,9 +30,12 @@
                 <label>{{ __('Workshop') }}<code>*</code></label>
                 <select class="form-control select2 @error('workshop') is-invalid @enderror" name="workshop" required>
                     @foreach ($workshop as $w)
-                    <option value="{{ $w->id }}">
-                        {{ $w->name }}
+                    @foreach (json_decode($w->cupboard) as $c)
+                    <option value="{{ $w->id.__('-').$c }}">
+                        {{ $w->name.__(' - ') }}
+                        {{ $c }}
                     </option>
+                    @endforeach
                     @endforeach
                 </select>
                 @error('workshop')

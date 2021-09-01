@@ -23,6 +23,7 @@ class Transaction extends Model
         'b_id',
         'return',
         'w_id',
+        'w_name',
         'i_id',
         's_id',
     ];

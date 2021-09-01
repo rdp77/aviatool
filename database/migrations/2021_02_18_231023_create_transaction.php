@@ -18,6 +18,7 @@ class CreateTransaction extends Migration
             $table->foreignId('b_id')->nullable();
             $table->boolean('return')->default('0');
             $table->foreignId('w_id');
+            $table->string('w_name');
             $table->foreignId('s_id');
             $table->json('i_id');
         });

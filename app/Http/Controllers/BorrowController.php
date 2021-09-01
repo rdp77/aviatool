@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BorrowController extends Controller
 {
@@ -83,7 +84,8 @@ class BorrowController extends Controller
             'id' => $this->FunctionController->countID('transaction'),
             'b_id' => $borrowID,
             'i_id' => json_encode($req->items),
-            'w_id' => $req->workshop,
+            'w_id' => Str::of($req->workshop)->before('-'),
+            'w_name' => Str::of($req->workshop)->after('-'),
             's_id' => $req->student,
             'history' => 0
         ]);
