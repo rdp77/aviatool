@@ -1,17 +1,17 @@
 @extends('layouts.default')
-@section('title', __('pages.title').__(' | Tambah Pelajar'))
-@section('titleContent', __('Tambah Pelajar'))
+@section('title', __('pages.title').__(' | Tambah Pengguna'))
+@section('titleContent', __('Tambah Pengguna'))
 @section('breadcrumb', __('Master'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pelajar') }}</div>
-<div class="breadcrumb-item active">{{ __('Tambah Pelajar') }}</div>
+<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
+<div class="breadcrumb-item active">{{ __('Tambah Pengguna') }}</div>
 @endsection
 
 @section('content')
 @include('layouts.components.notification')
 <h2 class="section-title">{{ $code }}</h2>
 <p class="section-lead">
-    {{ __('ID yang digunakan untuk mengidentifikasi setiap pelajar.') }}
+    {{ __('ID yang digunakan untuk mengidentifikasi setiap pengguna.') }}
 </p>
 <form method="POST" action="{{ route('student.store') }}">
     @csrf

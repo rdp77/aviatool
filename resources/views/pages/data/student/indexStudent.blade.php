@@ -1,16 +1,16 @@
 @extends('layouts.default')
-@section('title', __('pages.title').__(' | Master Pelajar'))
-@section('titleContent', __('Pelajar'))
+@section('title', __('pages.title').__(' | Master Pengguna'))
+@section('titleContent', __('Pengguna'))
 @section('breadcrumb', __('Master'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pelajar') }}</div>
+<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
 @endsection
 
 @section('content')
 <div class="card">
     <div class="card-header">
         <a href="{{ route('student.create') }}" class="btn btn-icon icon-left btn-primary">
-            <i class="far fa-edit"></i>{{ __(' Tambah Pelajar') }}</a>
+            <i class="far fa-edit"></i>{{ __(' Tambah pengguna') }}</a>
     </div>
     <div class="card-body">
         <table class="table-striped table" id="tables" width="100%">
