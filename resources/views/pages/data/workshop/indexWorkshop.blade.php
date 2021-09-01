@@ -37,6 +37,8 @@
                         {{ count(json_decode($w->cupboard)).__(' Lemari') }}
                     </td>
                     <td>
+                        <button onclick="getItems({{ $w->id }})" class="btn btn-primary btn-action mb-1 mt-1 mr-1"
+                            data-toggle="tooltip" title="Lihat Barang"><i class="fas fa-eye"></i></button>
                         <form id="del-data{{ $w->id }}" action="{{ route('workshop.destroy',$w->id) }}" method="POST"
                             class="d-inline">
                             @csrf
@@ -54,4 +56,7 @@
         </table>
     </div>
 </div>
+@endsection
+@section('script')
+<script src="{{ asset('pages/workshop/index.js') }}"></script>
 @endsection

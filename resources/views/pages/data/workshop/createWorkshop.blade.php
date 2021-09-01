@@ -8,8 +8,17 @@
 @endsection
 
 @section('content')
-<div class="card">
-    <form method="POST" action="{{ route('workshop.store') }}">
+@if(Session::has('status'))
+<div class="alert alert-primary alert-has-icon">
+    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+    <div class="alert-body">
+        <div class="alert-title">{{ __('Informasi') }}</div>
+        {{ Session::get('status') }}
+    </div>
+</div>
+@endif
+<form method="POST" action="{{ route('workshop.store') }}">
+    <div class="card">
         @csrf
         <div class="card-body">
             <div class="form-group">
@@ -22,20 +31,34 @@
                 </span>
                 @enderror
             </div>
-            <div class="form-group">
-                <label>{{ __('Jumlah Lemari') }}<code>*</code></label>
-                <input type="text" class="form-control @error('cupboard') is-invalid @enderror" name="cupboard"
-                    required>
-                @error('cupboard')
-                <span class="text-danger" role="alert">
-                    {{ $message }}
-                </span>
-                @enderror
-            </div>
+        </div>
+    </div>
+    <h2 class="section-title">{{ __('Nama Lemari') }}</h2>
+    <div class="card">
+        <div class="card-header">
+            <a class="btn btn-icon icon-left btn-primary" style="cursor: pointer;color: white" onclick="add_item()">
+                <i class="far fa-edit"></i>{{ __(' Tambah Lemari') }}
+            </a>
+        </div>
+        <div class="card-body">
+            <table class="table-striped table" id="penawaran" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            {{ __('Lemari') }}
+                        </th>
+                        <th>{{ __('Aksi') }}</th>
+                    </tr>
+                </thead>
+                <tbody class="drop"></tbody>
+            </table>
         </div>
         <div class="card-footer text-right">
             <button class="btn btn-primary mr-1" type="submit">{{ __('pages.add') }}</button>
         </div>
-    </form>
-</div>
+    </div>
+</form>
+@endsection
+@section('script')
+<script src="{{ asset('pages/workshop/add.js') }}"></script>
 @endsection

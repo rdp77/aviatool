@@ -42,12 +42,16 @@ class WorkshopController extends Controller
     {
         Validator::make($req->all(), [
             'name' => 'required',
-            'cupboard' => 'required|integer|min:1'
         ])->validate();
+
+        if ($req->cupboard == null) {
+            return Redirect::route('workshop.create')
+                ->with(['status' => 'Pastikan sudah menambahkan lemari minimal 1']);
+        }
 
         Workshop::create([
             'name' => Str::upper($req->name),
-            'cupboard' => $this->FunctionController->createCupboard($req->cupboard)
+            'cupboard' => json_encode($req->cupboard)
         ]);
 
         return Redirect::route('workshop.index');
@@ -57,5 +61,19 @@ class WorkshopController extends Controller
     {
         Workshop::find($id)->delete();
         return Redirect::route('workshop.index');
+    }
+
+    public function show($id)
+    {
+        $workshop = Workshop::find($id);
+        $nameItems = array();
+
+        for ($i = 0; $i < count(json_decode($workshop->cupboard)); $i++) {
+            array_push($nameItems, json_decode($workshop->cupboard)[$i]);
+        }
+
+        return response()->json([
+            'name' => $nameItems,
+        ]);
     }
 }

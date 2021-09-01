@@ -40,7 +40,7 @@ Route::resource('student', App\Http\Controllers\StudentController::class)->excep
 ]);
 
 Route::resource('workshop', App\Http\Controllers\WorkshopController::class)->except([
-    'show', 'edit'
+    'edit'
 ]);
 
 Route::resource('borrow', App\Http\Controllers\BorrowController::class)->except([
