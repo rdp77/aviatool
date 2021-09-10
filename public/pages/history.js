@@ -52,12 +52,6 @@ var table = $("#history").DataTable({
             },
         },
         {
-            extend: "pdfHtml5",
-            exportOptions: {
-                columns: [0, 1, 2, 5],
-            },
-        },
-        {
             extend: "colvis",
             postfixButtons: ["colvisRestore"],
             text: "Sembunyikan Kolom",
