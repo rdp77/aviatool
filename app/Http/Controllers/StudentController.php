@@ -51,11 +51,20 @@ class StudentController extends Controller
 
         $maxClass = StudentClass::find($req->class)->max;
         $currentStudent = Student::where('c_id', $req->class)->count();
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('student', $req->name);
+
         if ($maxClass == $currentStudent) {
             return Redirect::route('student.create')->with([
                 'status' => 'Jumlah pelajar untuk kelas ini sudah mencapai batas maksimal',
                 'type' => 'info'
             ]);
+        } else if ($duplicate != null) {
+            return Redirect::route('student.create')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada student, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
         }
 
         Student::create([
@@ -82,6 +91,17 @@ class StudentController extends Controller
             'name' => 'required',
             'class' => 'required',
         ])->validate();
+
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('student', $req->name);
+
+        if ($duplicate != null) {
+            return Redirect::route('student.update')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada student, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
+        }
 
         $student = Student::find($id);
         $student->name = $req->name;

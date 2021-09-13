@@ -46,6 +46,17 @@ class ItemsController extends Controller
             'condition' => 'required'
         ]);
 
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('items', $req->name);
+
+        if ($duplicate != null) {
+            return Redirect::route('items.create')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada barang, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
+        }
+
         Items::create([
             'code' => $req->code,
             'name' => $req->name,
@@ -69,6 +80,17 @@ class ItemsController extends Controller
             'name' => 'required',
             'condition' => 'required'
         ])->validate();
+
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('items', $req->name);
+
+        if ($duplicate != null) {
+            return Redirect::route('items.update')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada barang, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
+        }
 
         $items = Items::find($id);
         $items->name = $req->name;

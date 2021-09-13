@@ -45,9 +45,8 @@ class WorkshopController extends Controller
             'name' => 'required',
         ])->validate();
 
-        $duplicate = DB::table('workshop')
-            ->having('name', '=', $req->name)
-            ->first();
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('workshop', $req->name);
 
         if ($req->cupboard == null) {
             return Redirect::route('workshop.create')

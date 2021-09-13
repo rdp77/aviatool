@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+@include('layouts.components.notification')
 <div class="card">
     <form method="POST" action="{{ route('class.store') }}">
         @csrf

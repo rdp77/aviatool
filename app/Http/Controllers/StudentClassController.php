@@ -46,6 +46,17 @@ class StudentClassController extends Controller
             'max_student' => 'required',
         ])->validate();
 
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('class', $req->name);
+
+        if ($duplicate != null) {
+            return Redirect::route('class.create')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada class, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
+        }
+
         StudentClass::create([
             'name' => $req->name,
             'max' => $req->max_student
@@ -66,6 +77,17 @@ class StudentClassController extends Controller
             'name' => 'required',
             'max_student' => 'required',
         ])->validate();
+
+        $duplicate = $this->FunctionController
+            ->checkDuplicate('class', $req->name);
+
+        if ($duplicate != null) {
+            return Redirect::route('class.update')
+                ->with([
+                    'status' => 'Terdapat duplikasi nama pada class, gunakan nama lainnya',
+                    'type' => 'info'
+                ]);
+        }
 
         $studentClass = StudentClass::find($id);
         $studentClass->name = $req->name;

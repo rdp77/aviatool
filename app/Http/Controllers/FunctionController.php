@@ -50,4 +50,11 @@ class FunctionController extends Controller
             ->limit('1')
             ->first()->id + 1;
     }
+
+    public function checkDuplicate($table, $name)
+    {
+        return DB::table($table)
+            ->having('name', '=', $name)
+            ->first();
+    }
 }

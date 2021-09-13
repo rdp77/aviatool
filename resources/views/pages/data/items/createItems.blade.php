@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+@include('layouts.components.notification')
 <h2 class="section-title">{{ $code }}</h2>
 <p class="section-lead">
     {{ __('ID yang digunakan untuk mengidentifikasi setiap barang.') }}
