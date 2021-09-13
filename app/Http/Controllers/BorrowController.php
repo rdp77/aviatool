@@ -65,6 +65,11 @@ class BorrowController extends Controller
                 'workshop' => Workshop::all(),
                 'items' => Items::all()
             ])->with(['status' => 'Pastikan sudah menambahkan barang minimal 1']);
+        } else if ($this->checkDuplicate($req->items) == true) {
+            return Redirect::route('borrow.create')
+                ->with([
+                    'status' => 'Terdapat duplikasi pada barang, gunakan barang yang berbeda',
+                ]);
         }
 
         Borrow::create([
@@ -151,5 +156,10 @@ class BorrowController extends Controller
     public function createCode()
     {
         return "TRS-" . str_pad($this->FunctionController->getRandom('borrow'), 5, '0', STR_PAD_LEFT);
+    }
+
+    function checkDuplicate($array)
+    {
+        return count($array) !== count(array_unique($array));
     }
 }
