@@ -46,6 +46,7 @@ Route::resource('workshop', App\Http\Controllers\WorkshopController::class)->exc
 Route::resource('borrow', App\Http\Controllers\BorrowController::class)->except([
     'edit'
 ]);
+Route::get('/check-item', [App\Http\Controllers\BorrowController::class, 'checkItem']);
 
 Route::resource('history', App\Http\Controllers\HistoryController::class)->only([
     'index'

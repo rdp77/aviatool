@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+@include('pages.transaction.borrow.components.modal')
 <h2 class="section-title">{{ $code }}</h2>
 <p class="section-lead">
     {{ __('ID yang digunakan untuk mengidentifikasi setiap transaksi.') }}
@@ -76,6 +77,9 @@
         <div class="card-header">
             <a class="btn btn-icon icon-left btn-primary" style="cursor: pointer;color: white" onclick="add_item()">
                 <i class="far fa-edit"></i>{{ __(' Tambah Barang') }}
+            </a>
+            <a id="barcode" class="ml-2 btn btn-icon icon-left btn-primary" style="cursor: pointer;color: white">
+                <i class="fa fa-barcode"></i>{{ __(' Barcode') }}
             </a>
         </div>
         <div class="card-body">

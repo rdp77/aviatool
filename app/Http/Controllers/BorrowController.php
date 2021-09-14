@@ -11,6 +11,7 @@ use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -161,5 +162,15 @@ class BorrowController extends Controller
     function checkDuplicate($array)
     {
         return count($array) !== count(array_unique($array));
+    }
+
+    public function checkItem(Request $req)
+    {
+        $check = Items::where('code', $req->nomor)->first();
+        if ($check != null) {
+            return Response::json([
+                'status' => 'available', 'data' => $check
+            ]);
+        }
     }
 }
