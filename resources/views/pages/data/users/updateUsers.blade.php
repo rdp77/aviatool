@@ -1,10 +1,10 @@
 @extends('layouts.default')
-@section('title', __('pages.title').__(' | Edit Pengguna'))
-@section('titleContent', __('Edit Pengguna'))
+@section('title', __('pages.title').__(' | Edit Administrator'))
+@section('titleContent', __('Edit Administrator'))
 @section('breadcrumb', __('Master'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
-<div class="breadcrumb-item active">{{ __('Edit Pengguna') }}</div>
+<div class="breadcrumb-item active">{{ __('Administrator') }}</div>
+<div class="breadcrumb-item active">{{ __('Edit Administrator') }}</div>
 @endsection
 
 @section('content')

@@ -1,9 +1,9 @@
 @extends('layouts.default')
-@section('title', __('pages.title').__(' | Master Pengguna'))
-@section('titleContent', __('Pengguna'))
+@section('title', __('pages.title').__(' | Master Administrator'))
+@section('titleContent', __('Administrator'))
 @section('breadcrumb', __('Master'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
+<div class="breadcrumb-item active">{{ __('Administrator') }}</div>
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
 <div class="card">
     <div class="card-header">
         <a href="{{ route('users.create') }}" class="btn btn-icon icon-left btn-primary">
-            <i class="far fa-edit"></i>{{ __(' Tambah Pengguna') }}</a>
+            <i class="far fa-edit"></i>{{ __(' Tambah Administrator') }}</a>
     </div>
     <div class="card-body">
         <table class="table-striped table" id="tables" width="100%">

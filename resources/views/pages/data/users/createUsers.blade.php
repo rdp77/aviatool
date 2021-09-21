@@ -1,10 +1,10 @@
 @extends('layouts.default')
-@section('title', __('pages.title').__(' | Tambah Pengguna'))
-@section('titleContent', __('Tambah Pengguna'))
+@section('title', __('pages.title').__(' | Tambah Administrator'))
+@section('titleContent', __('Tambah Administrator'))
 @section('breadcrumb', __('Master'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
-<div class="breadcrumb-item active">{{ __('Tambah Pengguna') }}</div>
+<div class="breadcrumb-item active">{{ __('Administrator') }}</div>
+<div class="breadcrumb-item active">{{ __('Tambah Administrator') }}</div>
 @endsection
 
 @section('content')
