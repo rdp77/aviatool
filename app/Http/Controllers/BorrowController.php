@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\Transaction;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -103,7 +104,7 @@ class BorrowController extends Controller
         }
 
         History::create([
-            'datetime' => date("Y-m-d H:i:s"),
+            'datetime' => Carbon::now()->toDateTimeString(),
             's_id' => $req->student,
             'i_id' => json_encode($req->items),
             'info' => 'Dipinjam',
