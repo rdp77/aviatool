@@ -85,7 +85,7 @@ class ItemsController extends Controller
             ->checkDuplicate('items', $req->name);
 
         if ($duplicate != null) {
-            return Redirect::route('items.update')
+            return Redirect::route('items.edit', $id)
                 ->with([
                     'status' => 'Terdapat duplikasi nama pada barang, gunakan nama lainnya',
                     'type' => 'info'

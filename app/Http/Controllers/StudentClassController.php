@@ -82,7 +82,7 @@ class StudentClassController extends Controller
             ->checkDuplicate('class', $req->name);
 
         if ($duplicate != null) {
-            return Redirect::route('class.update')
+            return Redirect::route('class.edit', $id)
                 ->with([
                     'status' => 'Terdapat duplikasi nama pada class, gunakan nama lainnya',
                     'type' => 'info'
