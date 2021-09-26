@@ -14,6 +14,7 @@ const mix = require("laravel-mix");
 // CSS
 mix.styles(
     [
+        "resources/css/iziToast.css",
         "resources/css/nprogress.css",
         "resources/css/mfb.min.css",
         "resources/css/bootstrap.min.css",
@@ -36,6 +37,15 @@ mix.styles(
 // Javascript
 mix.scripts(
     [
+        "resources/js/jquery.js",
+        "resources/js/moment.js",
+        "resources/js/popper.js",
+        "resources/js/nicescroll.js",
+        "resources/js/dataTables.select.js",
+        "resources/js/pdfmake.js",
+        "resources/js/vfs_font.js",
+        "resources/js/sweetalert.js",
+        "resources/js/iziToast.js",
         "resources/js/nprogress.js",
         "resources/js/mfb.min.js",
         "resources/js/daterangepicker.js",
